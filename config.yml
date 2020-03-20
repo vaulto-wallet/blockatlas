@@ -1,7 +1,7 @@
 # Gin is the web framework
 gin:
   # Possible values: "debug", "release"
-  mode: release
+  mode: debug
   # App running behind a reverse proxy?
   # If set, HTTP Forwarded headers will be respected
   reverse_proxy: false
@@ -64,8 +64,10 @@ tezos:
   api: http://api.tezos.id/mooncake/mainnet
   rpc: https://mainnet.tezos.org.ua
 
-# [ETH] Ethereum: https://ethereum.org (Trust-Ray API)
-# ethereum:
+etherscan:
+  api: https://api.etherscan.io
+
+# [ETH] Ethereum: https://ethereum.org (Trust-Ray API) ethereum:
 #  api: https://localhost:4567
 #  collections_api: https://api.opensea.io
 #  collections_api_key: [opensea_api_key]

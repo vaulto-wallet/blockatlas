@@ -524,6 +524,7 @@ github.com/valyala/fasthttp v1.6.0 h1:uWF8lgKmeaIewWVPwi4GRq2P6+R46IgYZdxWtM+GtE
 github.com/valyala/fasthttp v1.6.0/go.mod h1:FstJa9V+Pj9vQ7OJie2qMHdwemEDaDiSdBnvPM1Su9w=
 github.com/valyala/fasttemplate v1.0.1/go.mod h1:UQGH1tvbgY+Nz5t2n7tXsz52dQxojPUpymEIMZ47gx8=
 github.com/valyala/tcplisten v0.0.0-20161114210144-ceec8f93295a/go.mod h1:v3UYOV9WzVtRmSR+PDvWpU/qWl4Wa5LApYYX4ZtKbio=
+github.com/vaulto-wallet/blockatlas v1.0.37 h1:yq2KseX5CJ6B3wNHyyWpBbRerWCUTJ12mP8awS1OOxg=
 github.com/wealdtech/go-ens/v3 v3.1.0/go.mod h1:P2OEBvgkhXLrPzPN+eR5z2/wFIGwHyijTDvpuC1xLlo=
 github.com/wealdtech/go-ens/v3 v3.2.0 h1:bshYk63BUJaIriX3UoAcYKh1tVI85kI1Xbg3jAnM/NM=
 github.com/wealdtech/go-ens/v3 v3.2.0/go.mod h1:P2OEBvgkhXLrPzPN+eR5z2/wFIGwHyijTDvpuC1xLlo=
