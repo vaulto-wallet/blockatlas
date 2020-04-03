@@ -45,6 +45,21 @@ func (c *Client) CurrentBlockNumber() (int64, error) {
 
 }
 
+func (c *Client) GasPrice() (int64, error) {
+	var gasInfo GasPage
+	values := url.Values{"module": {"proxy"}, "action": {"eth_gasPrice"}}
+	err := c.Get(&gasInfo, "api", values)
+	if err != nil {
+		return 0, err
+	}
+	if block_number, err := hexToInt(gasInfo.Gas); err != nil {
+		return 0, err
+	} else {
+		return block_number, nil
+	}
+
+}
+
 func (c *Client) GetTokens(address string) (tp *TokenPage, err error) {
 	query := url.Values{
 		"address": {address},

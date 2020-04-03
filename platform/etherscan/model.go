@@ -25,6 +25,9 @@ type BlockPage struct {
 type BalancePage struct {
 	Balance string `json:"result"`
 }
+type GasPage struct {
+	Gas string `json:"result"`
+}
 
 type Block struct {
 	Miner string `json:"miner"`

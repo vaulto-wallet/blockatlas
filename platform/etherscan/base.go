@@ -37,5 +37,14 @@ func (p *Platform) RegisterRoutes(router gin.IRouter) {
 	router.GET("/block/:block", func(c *gin.Context) {
 		p.getBlockByNumber(c)
 	})
+	router.GET("/gas/price", func(c *gin.Context) {
+		p.getGasPrice(c)
+	})
+	router.POST("/transaction/estimate", func(c *gin.Context) {
+		p.getEstimatedGas(c)
+	})
+	router.POST("/transaction/send", func(c *gin.Context) {
+		p.getEstimatedGas(c)
+	})
 
 }
