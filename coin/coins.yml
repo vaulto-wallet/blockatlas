@@ -1,6 +1,6 @@
 - id: 60
   symbol: ETH
-  handle: ethereum
+  handle: etherscan
   name: Ethereum
   decimals: 18
   blockTime: 10000
@@ -228,6 +228,15 @@
   decimals: 8
   blockTime: 600000
   sampleAddress: 'bc1quvuarfksewfeuevuc6tn0kfyptgjvwsvrprk9d'
+
+- id: 9
+  symbol: BTCT
+  handle: bitcointest
+  name: BitcoinTest
+  decimals: 8
+  blockTime: 600000
+  sampleAddress: 'bc1quvuarfksewfeuevuc6tn0kfyptgjvwsvrprk9d'
+
 
 - id: 2
   symbol: LTC

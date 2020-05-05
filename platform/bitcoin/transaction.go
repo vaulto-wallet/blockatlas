@@ -192,8 +192,11 @@ func parseOutputs(outputs []Output) (addresses []blockatlas.TxOutput) {
 			} else {
 				amount := numbers.GetAmountValue(output.Value)
 				set[address] = blockatlas.TxOutput{
-					Address: address,
-					Value:   blockatlas.Amount(amount),
+					Address:  address,
+					Value:    blockatlas.Amount(amount),
+					N:        output.N,
+					Sequence: output.Sequence,
+					TxId:     output.TxId,
 				}
 				ordered = append(ordered, address)
 			}

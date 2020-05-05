@@ -22,11 +22,14 @@ type BlockPage struct {
 	Block Block `json:"result"`
 }
 
-type BalancePage struct {
-	Balance string `json:"result"`
+type StringResultPage struct {
+	Status  string `josn:"status"`
+	Message string `json:"message"`
+	Result  string `json:"result"`
 }
-type GasPage struct {
-	Gas string `json:"result"`
+
+type InterfaceResultPage struct {
+	Result interface{} `json:"result"`
 }
 
 type Block struct {
@@ -37,7 +40,7 @@ type Block struct {
 type Doc struct {
 	Ops         []Op   `json:"operations"`
 	Contract    string `json:"contract"`
-	ID          string `json:"id"`
+	ID          string `json:"hash"`
 	BlockNumber string `json:"blockNumber"`
 	Timestamp   string `json:"timeStamp"`
 	Nonce       string `json:"nonce"`

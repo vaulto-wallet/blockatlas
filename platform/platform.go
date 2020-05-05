@@ -92,7 +92,6 @@ func getPlatformMap() blockatlas.Platforms {
 		coin.Dash().Handle:         bitcoin.Init(coin.DASH, GetApiVar(coin.DASH)),
 		coin.Doge().Handle:         bitcoin.Init(coin.DOGE, GetApiVar(coin.DOGE)),
 		coin.Qtum().Handle:         bitcoin.Init(coin.QTUM, GetApiVar(coin.QTUM)),
-		coin.Ethereum().Handle:     etherscan.Init(coin.ETH, GetApiVar(coin.ETH), GetRpcVar(coin.ETH)),
 		coin.Gochain().Handle:      ethereum.Init(coin.GO, GetApiVar(coin.GO), GetRpcVar(coin.GO)),
 		coin.Thundertoken().Handle: ethereum.Init(coin.TT, GetApiVar(coin.TT), GetRpcVar(coin.TT)),
 		coin.Classic().Handle:      ethereum.Init(coin.ETC, GetApiVar(coin.ETC), GetRpcVar(coin.ETC)),
@@ -101,10 +100,12 @@ func getPlatformMap() blockatlas.Platforms {
 		coin.Wanchain().Handle:     ethereum.Init(coin.WAN, GetApiVar(coin.WAN), GetRpcVar(coin.WAN)),
 		coin.Tomochain().Handle:    ethereum.Init(coin.TOMO, GetApiVar(coin.TOMO), GetRpcVar(coin.TOMO)),
 		// coin.Ethereum().Handle:     ethereum.InitWitCollection(coin.ETH, GetApiVar(coin.ETH), GetRpcVar(coin.ETH), GetVar("ethereum.collections_api"), GetVar("ethereum.collections_api_key")),
+		coin.Etherscan().Handle:   etherscan.Init(coin.ETH, GetApiVar(coin.ETH), GetRpcVar(coin.ETH)),
+		coin.Bitcointest().Handle: bitcoin.Init(coin.BTCT, GetApiVar(coin.BTCT)),
 	}
 }
 
 func InitCollectionsWhitelist() {
 	CollectionsWhitelist = make(map[uint]bool)
-	CollectionsWhitelist[coin.Ethereum().ID] = true
+	CollectionsWhitelist[coin.Bitcoin().ID] = true
 }

@@ -9,20 +9,20 @@ import (
 func (p *Platform) getBalance(c *gin.Context) {
 	token := c.Query("token")
 	address := c.Param("address")
-	var srcPage BalancePage
 	var err error
+	var balance string
 
 	if token != "" {
 		//srcPage, err = p.client.GetTokenBalance(address, token)
-		srcPage, err = p.client.GetBalance(address)
+		balance, err = p.client.GetBalance(address)
 	} else {
-		srcPage, err = p.client.GetBalance(address)
+		balance, err = p.client.GetBalance(address)
 	}
 
 	if apiError(c, err) {
 		return
 	}
-	logger.Info("Balance", srcPage)
+	logger.Info("Balance", balance)
 
-	c.JSON(http.StatusOK, &srcPage)
+	c.JSON(http.StatusOK, &balance)
 }

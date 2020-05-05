@@ -1,6 +1,8 @@
 package bitcoin
 
-import "encoding/json"
+import (
+	"encoding/json"
+)
 
 type TransactionsList struct {
 	Page         int64         `json:"page"`
@@ -59,6 +61,8 @@ type Output struct {
 	Value        string       `json:"value,omitempty"`
 	Addresses    []string     `json:"addresses,omitempty"`
 	ScriptPubKey ScriptPubKey `json:"scriptPubKey,omitempty"`
+	N            uint         `json:"n,omitempty"`
+	Sequence     uint         `json:"sequence,omitempty"`
 }
 
 type ScriptPubKey struct {

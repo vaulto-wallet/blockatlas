@@ -12,6 +12,48 @@ import (
 	"strconv"
 )
 
+type ethereumTransaction struct {
+	Data  string `json:"data"`
+	Value int64  `json:"value"`
+	To    string `json:"to"`
+}
+
+type ethereumRawTransaction struct {
+	Tx string `json:"tx"`
+}
+
+func (p *Platform) getEstimatedGas(c *gin.Context) {
+	var txrequest ethereumTransaction
+
+	if err := c.ShouldBindJSON(&txrequest); err != nil {
+		c.JSON(http.StatusOK, InterfaceResultPage{0})
+		return
+	}
+
+	gasAmount, err := p.client.EstimateGas(txrequest.Data, txrequest.To, txrequest.Value)
+	if apiError(c, err) {
+		return
+	}
+
+	c.JSON(http.StatusOK, InterfaceResultPage{strconv.FormatInt(gasAmount, 10)})
+}
+
+func (p *Platform) sendTransaction(c *gin.Context) {
+	var txrequest ethereumRawTransaction
+
+	if err := c.ShouldBindJSON(&txrequest); err != nil {
+		c.JSON(http.StatusOK, InterfaceResultPage{0})
+		return
+	}
+
+	txHash, err := p.client.SendTransaction(txrequest.Tx)
+	if apiError(c, err) {
+		return
+	}
+
+	c.JSON(http.StatusOK, InterfaceResultPage{txHash})
+}
+
 func (p *Platform) getTransactions(c *gin.Context) {
 	token := c.Query("token")
 	address := c.Param("address")

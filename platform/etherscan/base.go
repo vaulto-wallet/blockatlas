@@ -16,7 +16,7 @@ func Init(coin uint, api, rpc string) *Platform {
 	return &Platform{
 		CoinIndex: coin,
 		RpcURL:    rpc,
-		client:    Client{blockatlas.InitClient(api)},
+		client:    Client{blockatlas.InitClient(api), 10},
 	}
 }
 
@@ -28,7 +28,7 @@ func (p *Platform) RegisterRoutes(router gin.IRouter) {
 	router.GET("/balance/:address", func(c *gin.Context) {
 		p.getBalance(c)
 	})
-	router.GET("/txs/:address", func(c *gin.Context) {
+	router.GET("/address/:address", func(c *gin.Context) {
 		p.getTransactions(c)
 	})
 	router.GET("/current_block", func(c *gin.Context) {
@@ -44,7 +44,7 @@ func (p *Platform) RegisterRoutes(router gin.IRouter) {
 		p.getEstimatedGas(c)
 	})
 	router.POST("/transaction/send", func(c *gin.Context) {
-		p.getEstimatedGas(c)
+		p.sendTransaction(c)
 	})
 
 }
